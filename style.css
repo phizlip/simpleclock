@@ -1,0 +1,155 @@
+@font-face {
+    font-family: 'Roboto Mono';
+    src: url('./fonts/RobotoMono-Regular.ttf') format('truetype');
+}
+
+body {
+    background-color: #F5F5F5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    color: #333;
+    font-family: 'Roboto Mono', Arial, sans-serif;
+    flex-direction: column;
+    overflow: hidden;
+    transition: background-color 0.3s ease; /*darkmode transition time*/
+}
+
+body.dark {
+    background-color: #333;
+    color: #F5F5F5;
+}
+
+#page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90%; 
+    width: 100%;
+    text-align: center;
+}
+
+#clock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70%;
+    text-align: center;
+}
+
+#digital-clock {
+    font-size: 12vmin; /* digital clock size */
+    cursor: pointer;
+}
+
+#date {
+    font-size: 4.5vmin; /* date size */
+}
+
+#analog-clock {
+    display: none;
+    position: absolute;
+    width: 70vmin; 
+    height: 70vmin;
+    border: 10px solid #333333;
+    border-radius: 100%; /*make lower for more squared clock design*/
+}
+
+body.dark #analog-clock {
+    border-color: white;
+}
+
+#hand-hour,
+#hand-minute,
+#hand-second {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom center;
+}
+
+#hand-hour {
+    width: 8px;
+    height: 35%;
+    transform: translateX(-50%);
+    background-color: #333333;
+    border-radius: 2px;
+}
+
+body.dark #hand-hour {
+    background-color: white;
+}
+
+#hand-minute {
+    width: 6px;
+    height: 45%;
+    transform: translateX(-50%);
+    background-color: #333333;
+    border-radius: 2px;
+}
+
+body.dark #hand-minute {
+    background-color: white;
+}
+
+#hand-second {
+    width: 4px;
+    height: 45%;
+    transform: translateX(-50%);
+    background-color: red;
+    border-radius: 2px;
+}
+
+#clock-center {
+    position: absolute;
+    background-color: #333333;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+body.dark #clock-center {
+    background-color: white;
+}
+
+#theme-toggle {
+    cursor: pointer;
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+}
+
+#sun-icon,
+#moon-icon {
+    width: 24px;
+    height: 24px;
+}
+
+#moon-icon {
+    display: none;
+}
+
+body.dark #moon-icon {
+    display: inline;
+}
+
+body.dark #sun-icon {
+    display: none;
+}
+
+/* prevents users from highlighting any element */
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
